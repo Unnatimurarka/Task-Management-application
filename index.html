@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Task Manager</h1>
+        <button id="logout-btn" class="hidden">Logout</button>
+    </header>
+
+    <main id="app-container">
+        <!-- Auth View -->
+        <section id="auth-view" class="view">
+            <h2 id="auth-title">Login</h2>
+            <form id="auth-form" class="card-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="form-actions">
+                    <button type="submit" class="btn primary" id="auth-submit">Login</button>
+                </div>
+            </form>
+            <p class="auth-toggle">
+                <span id="auth-toggle-msg">Don't have an account?</span> 
+                <a href="#" id="auth-toggle-btn">Register</a>
+            </p>
+        </section>
+
+        <!-- Dashboard View -->
+        <section id="dashboard-view" class="view hidden">
+            <div class="create-task-card">
+                <h2>Create New Task</h2>
+                <form id="task-form" class="card-form inline-form">
+                    <input type="text" id="task-title" placeholder="What needs to be done?" required>
+                    <input type="text" id="task-desc" placeholder="Details (optional)">
+                    <button type="submit" class="btn primary">Add</button>
+                </form>
+            </div>
+            
+            <div class="task-list-container">
+                <h2>Your Tasks</h2>
+                <ul id="task-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="/dist/main.js"></script>
+</body>
+</html>

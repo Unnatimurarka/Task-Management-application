@@ -1,0 +1,11 @@
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY frontend/package.json ./
+RUN npm install typescript -g
+COPY frontend/ ./
+RUN tsc
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html/dist
+COPY frontend/index.html /usr/share/nginx/html/
+COPY frontend/styles.css /usr/share/nginx/html/
